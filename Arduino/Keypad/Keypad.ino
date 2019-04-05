@@ -1,17 +1,25 @@
 #include <Keypad.h>
 #include <math.h>
 
-const byte ROWS = 4;
-const byte COLS = 3;
-char keys[ROWS][COLS] = {
+#define  Keypad1  2
+#define  Keypad2  3
+#define  Keypad3  4
+#define  Keypad4  5
+#define  Keypad5  7
+#define  Keypad6  8
+#define  Keypad7  9
+
+const byte ROWS = 4; //4 lignes
+const byte COLS = 3; //3 colones
+char keys[ROWS][COLS] = {   // description de la matrice
 {'1','2','3'},
 {'4','5','6'},
 {'7','8','9'},
 {'*','0','#'}
 };
-byte rowPins[ROWS] = {7, 5, 3, 2};
-byte colPins[COLS] = {4, 9, 8};
-Keypad keypad = Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS );
+byte rowPins[ROWS] = {Keypad5, Keypad4, Keypad2, Keypad1};   //definiton des broches pour les lignes
+byte colPins[COLS] = {Keypad3, Keypad7, Keypad6};     //definiton des broches pour les colones
+Keypad keypad = Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS ); //initialisation de la matrice
 
 int entree_nombre=0;
 int Tab[255];
